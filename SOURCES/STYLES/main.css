@@ -29,9 +29,8 @@ h3
 
 a
 {
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
+    color: dimgray;
+    font-weight: bolder;
 }
 
 ul
