@@ -8,7 +8,7 @@
         {
             echo "\t" . "\t" . "\t" . "\t" . "\t" . '<a href="' . trim($item) . '"';
             if(trim($item) == $current)
-                echo '" class="lb_menu_current"';
+                echo ' class="lb_menu_current"';
             echo '><li>' . trim($file_menu[$index - 1]) . '</li></a>' . PHP_EOL;
         }
     }
