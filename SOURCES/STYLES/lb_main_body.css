@@ -5,7 +5,7 @@
     padding: 0 var(--padding);
     width: 75%;
     background-color: var(--main-body-bkg-color);
-    color: var(--main-body-color)
+    color: var(--main-body-color);
 }
 
 .lb_main_body_header
