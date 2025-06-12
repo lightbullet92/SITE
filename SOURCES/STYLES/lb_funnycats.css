@@ -1,0 +1,9 @@
+:root
+{
+    --fc-size: 196px;
+}
+
+.lb_funnycats img
+{
+    height: var(--fc-size);
+}

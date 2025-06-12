@@ -1,0 +1,12 @@
+Главная
+index.php
+Новости
+news.php
+Статьи
+articles.php
+Minecraft
+minecraft.php
+Смешные котята
+funnycats.php
+О нас
+about.php

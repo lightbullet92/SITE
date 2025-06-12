@@ -1,0 +1,20 @@
+summary {
+    list-style: none;
+}
+  
+summary::-webkit-details-marker {
+    display: none;
+}
+  
+details summary::before {
+    content: ' ';
+    display: inline-block;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2l............);
+    height: 0;
+    width: 0;
+    background-size: 0 0;
+}
+  
+details[open] summary::before {
+    transform: rotate(90deg);
+}

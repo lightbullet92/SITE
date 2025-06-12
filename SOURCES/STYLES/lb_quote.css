@@ -1,0 +1,28 @@
+.lb_content_quote, .lb_content_quote_code
+{
+    padding: var(--padding) var(--text-indent);
+    width: 75%;
+}
+
+.lb_content_quote
+{
+    background-color: var(--content-quote-bkg-color);
+}
+
+.lb_content_quote_code
+{
+    background-color: var(--content-quote-code-bkg-color);
+}
+
+.lb_content_quote
+{
+    border: 1px solid black;
+    color: var(--content-quote-color);
+}
+
+.lb_content_quote_code
+{
+    border: 1px dotted black;
+    font-style: italic;
+    color: var(--content-quote-code-color);
+}
