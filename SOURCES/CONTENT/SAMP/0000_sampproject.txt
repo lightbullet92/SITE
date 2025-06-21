@@ -1,0 +1,6 @@
+Проект Light Bullet SAMP Server
+Представляю вашему вниманию сервер Light Bullet:
+<ul>
+<li>lightbullet.ru:7777 (0.3.7 R2)</li>
+</ul>
+Дополнительную информацию можно найти в <a href="https://t.me/+ypcbWSN4TZEzNmRi">группе telegram</a>.
