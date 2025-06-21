@@ -3,4 +3,5 @@
 <ul>
 <li>lightbullet.ru:7777 (0.3.7 R2)</li>
 </ul>
+Торрент для скачивания GTA SA + SA:MP: <a href="SOURCES/FILES/SAMP/gta_for_samp.torrent">ссылка</a>.
 Дополнительную информацию можно найти в <a href="https://t.me/+ypcbWSN4TZEzNmRi">группе telegram</a>.
