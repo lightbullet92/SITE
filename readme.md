@@ -27,8 +27,8 @@ respectively</li>
 
 <h2>Nginx config</h2>
 
-<b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/lightbullet.ru.conf /etc/nginx/sites-enabled/lightbullet.ru
+<b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/lightbullet.ru.conf /etc/nginx/sites-enabled/lightbullet.ru.conf
 
-<b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/m.lightbullet.ru.conf /etc/nginx/sites-enabled/m.lightbullet.ru
+<b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/m.lightbullet.ru.conf /etc/nginx/sites-enabled/m.lightbullet.ru.conf
 
 <b>user@COMPXX:~$ </b>sudo systemctl restart nginx
