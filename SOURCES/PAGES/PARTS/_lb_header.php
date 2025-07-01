@@ -1,4 +1,5 @@
 <?php
+    echo '<!DOCTYPE html>' . PHP_EOL;
     echo '<html lang="ru">' . PHP_EOL;
     echo "\t" . '<head>' . PHP_EOL;
     echo "\t" . "\t" . '<link rel="icon" href="SOURCES/IMG/Logo.png">' . PHP_EOL;

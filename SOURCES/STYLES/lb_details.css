@@ -8,8 +8,7 @@ summary::-webkit-details-marker {
   
 details summary::before {
     content: ' ';
-    display: inline-block;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2l............);
+    display: none;
     height: 0;
     width: 0;
     background-size: 0 0;

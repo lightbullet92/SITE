@@ -57,7 +57,7 @@ account required pam_permit.so
 Создаем папки для каждого из пользователей
 <div class="lb_content_quote">
 <b>root@COMPXX:~# </b>mkdir -p /ftpsd/FTP/*имя пользователя*
-<b>root@COMPXX:~# </b>chown -R www-data:www-data /ftpsd/users/*
+<b>root@COMPXX:~# </b>chown -R www-data:www-data /ftpsd/FTP/*
 <b>root@COMPXX:~# </b>chmod 755 /ftpsd/FTP/*
 </div>
 

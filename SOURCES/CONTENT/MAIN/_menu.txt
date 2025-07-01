@@ -8,6 +8,8 @@ Minecraft
 minecraft.php
 SA:MP
 samp.php
+Сборник мемов
+memes.php
 Смешные котята
 funnycats.php
 О нас
