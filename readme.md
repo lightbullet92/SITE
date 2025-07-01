@@ -15,7 +15,7 @@ respectively</li>
 <b>user@COMPXX:~$ </b>sudo apt-get -y install apache2 php libapache2-mod-php
 
 <h1>Applying settings</h1>
-<h2>Apache2 config (Not available now)</h2>
+<h2>Apache2 config</h2>
 
 <b>user@COMPXX:~$ </b>sudo a2dissite 000-default.conf
 
