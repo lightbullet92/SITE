@@ -8,9 +8,7 @@ Minecraft
 minecraft.php
 SA:MP
 samp.php
-Сборник мемов
-memes.php
-Смешные котята
-funnycats.php
+System Info
+sysinfo.php
 О нас
 about.php

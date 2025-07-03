@@ -6,15 +6,16 @@
 respectively</li>
 </ul>
 
-<h1>Nginx installation</h1>
+<h2>Nginx installation</h2>
 
 <b>user@COMPXX:~$ </b>sudo apt-get -y install nginx php
 
-<h1>Apache2 installation</h1>
+<h2>Apache2 installation</h2>
 
 <b>user@COMPXX:~$ </b>sudo apt-get -y install apache2 php libapache2-mod-php
 
 <h1>Applying settings</h1>
+
 <h2>Apache2 config</h2>
 
 <b>user@COMPXX:~$ </b>sudo a2dissite 000-default.conf
