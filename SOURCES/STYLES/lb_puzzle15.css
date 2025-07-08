@@ -1,11 +1,39 @@
+:root
+{
+    --puzzle-size: 48px;
+}
+
+.ms-game-msgbox{
+    display: block;
+    margin: var(--padding) auto;
+}
+
+.ms-game-msgbox p{
+    line-height: 68px;
+    text-align:center;
+    color:#f00;
+    font-size:125%;
+    font-weight: bold;
+}
+
+.Puzzle15Solver
+{
+    border: none;
+    width: calc((var(--puzzle-size) + var(--padding)) * 4);
+}
+
+.Puzzle15Solver td
+{
+    width: var(--puzzle-size);
+    height: var(--puzzle-size);
+}
+
 .btn
 {
     font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: var(--padding);
-    padding-bottom: var(--padding);
-    width: 35%;
+    margin: var(--padding) auto;
+    padding: var(--padding);
+    width: calc((var(--puzzle-size) + var(--padding)) * 4);
     display: block;
 }
 
