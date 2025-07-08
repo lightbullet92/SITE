@@ -1,0 +1,21 @@
+.btn
+{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+    width: 35%;
+    display: block;
+}
+
+.btn15
+{
+    font-weight: bold;
+}
+
+.Puzzle15Solver td
+{
+    width: 25%;
+    text-align: center;
+}
