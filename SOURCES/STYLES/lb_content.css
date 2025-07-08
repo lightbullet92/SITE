@@ -3,6 +3,7 @@
     padding: var(--menu-padding);
     font-size: 125%;
     font-weight: bold;
+    text-shadow: var(--text-shadow);
 }
 
 .lb_page_content_title

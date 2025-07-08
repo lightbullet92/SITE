@@ -1,6 +1,6 @@
 .lb_main_body
 {
-    border: 2px solid black;
+    border: var(--main-body-border);
     margin: var(--padding) auto;
     padding: 0 var(--padding);
     width: 75%;

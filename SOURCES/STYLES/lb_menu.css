@@ -26,4 +26,5 @@
 {
     color: var(--page-content-title-color) !important;
     background-color: var(--page-content-title-bkg-color);
+    text-shadow: var(--text-shadow);
 }

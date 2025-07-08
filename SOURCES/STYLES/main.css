@@ -40,7 +40,7 @@ ul
 
 table
 {
-    border: 1px solid black;
+    border: var(--border);
     width: 75%;
     margin: var(--padding) auto;
 }
@@ -48,5 +48,5 @@ table
 td
 {
     padding: 0 var(--padding);
-    border: 1px solid black;
+    border: var(--border);
 }
