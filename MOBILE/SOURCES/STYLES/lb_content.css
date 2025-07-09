@@ -1,0 +1,45 @@
+.lb_page_content_title, .lb_content_title, .lb_content_news_title
+{
+    padding: var(--menu-padding);
+    font-size: 125%;
+    font-weight: bold;
+    text-shadow: var(--text-shadow);
+}
+
+.lb_page_content_title
+{
+    color: var(--page-content-title-color);
+    background-color: var(--page-content-title-bkg-color);
+    text-align: center;
+}
+
+.lb_content_title, .lb_content_news_title
+{
+    color: var(--content-title-color);
+    background-color: var(--content-title-bkg-color);
+}
+
+.lb_content_news_title, .lb_content_title
+{
+    text-align: left;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.lb_content
+{
+    padding: var(--menu-padding);
+    text-indent: var(--text-indent);
+    text-align: justify;
+    font-size: 100%;
+    color: var(--content-color);
+    background-color: var(--content-bkg-color);
+}
+
+.lb_content ul
+{
+    margin: var(--padding);
+}

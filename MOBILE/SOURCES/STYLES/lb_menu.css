@@ -1,0 +1,30 @@
+:root
+{
+    --menu-padding: 5px;
+}
+
+.lb_menu ul
+{
+    display: flex;
+}
+
+.lb_menu ul a
+{
+    text-decoration: none;
+    color: var(--main-body-color);
+}
+
+.lb_menu ul li
+{
+    list-style-type: none;
+    padding: var(--menu-padding) calc(var(--menu-padding) * 3);
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.lb_menu_current
+{
+    color: var(--page-content-title-color) !important;
+    background-color: var(--page-content-title-bkg-color);
+    text-shadow: var(--text-shadow);
+}

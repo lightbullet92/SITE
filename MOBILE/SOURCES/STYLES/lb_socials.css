@@ -1,0 +1,18 @@
+:root
+{
+    --socials-icon-size: 32px;
+}
+
+.lb_socials_icons
+{
+    display: flex;
+    padding: var(--padding);
+}
+
+.lb_socials_icons img
+{
+    width: var(--socials-icon-size);
+    height: var(--socials-icon-size);
+    border: none;
+    padding: 0 var(--padding);
+}

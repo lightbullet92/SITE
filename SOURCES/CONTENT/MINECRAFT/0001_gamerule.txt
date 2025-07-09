@@ -7,7 +7,7 @@
 <h1>Параметры команды</h1>
 Используя таблицу, можно подобрать необходимые параметры и изменить их при необходимости.
 <table>
-<tr style="text-align: center; font-weight: bold;"><td>Правило</td><td>Описание</td><td>Возможные значения</td><td>Значение по умолчанию</td></tr>
+<tr><td><center><b>Правило</b></center></td><td><center><b>Описание</b></center></td><td><center><b>Возможные значения</b></center></td><td><center><b>Значение по умолчанию</b></center></td></tr>
 <tr><td>announceAdvancements</td><td>Уведомлений в чате о полученных достижений.</td><td>true or false</td><td>true</td></tr>
 <tr><td>commandBlockOutput</td><td>Командные блоки уведомлять администраторов о выполнении команд.</td><td>true or false</td><td>true</td></tr>
 <tr><td>disableElytraMovementCheck</td><td>Мониторинг за скоростью движения крыльев элитр.</td><td>true or false</td><td>false</td></tr>
