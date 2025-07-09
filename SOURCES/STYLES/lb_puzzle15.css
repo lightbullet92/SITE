@@ -18,8 +18,10 @@
 
 .Puzzle15Solver
 {
-    border: none;
-    width: calc((var(--puzzle-size) + var(--padding)) * 4);
+    border: var(--border);
+    width: calc((var(--puzzle-size) + var(--padding)) * 5);
+    background-color: var(--body-bkg-color);
+    border-radius: var(--padding);
 }
 
 .Puzzle15Solver td
@@ -43,14 +45,24 @@
     font-weight: bold;
     margin: var(--padding) auto;
     padding: var(--padding);
-    width: calc((var(--puzzle-size) + var(--padding)) * 4 - var(--padding));
+    width: calc((var(--puzzle-size) + var(--padding)) * 5);
     display: block;
     font-size:125%;
     border-radius: var(--padding);
-    background-color: var(--content-title-bkg-color);
-    color: var(--content-title-color);
+    background-color: var(--page-content-title-bkg-color);
+    color: var(--page-content-title-color);
     border: var(--border);
     text-shadow: var(--text-shadow);
+}
+
+.btn:hover
+{
+    background-color: var(--page-content-title-bkg-color-hover);
+}
+
+td:has(.btn15):hover
+{
+    background-color: var(--content-title-bkg-color-hover);
 }
 
 td:has(.btn15)

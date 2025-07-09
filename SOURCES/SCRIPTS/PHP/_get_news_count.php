@@ -1,4 +1,5 @@
 <?php
+    echo "\t" . "\t" . "\t" . '<div class="lb_page_content_title">Последние новости</div>' . PHP_EOL;
     $news_dir = "SOURCES/CONTENT/NEWS/";
     $files_news = array_diff(scandir($news_dir, SCANDIR_SORT_DESCENDING), array('..', '.'),);
     $count = 3;

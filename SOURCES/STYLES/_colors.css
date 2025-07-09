@@ -5,8 +5,10 @@
     --main-body-bkg-color: #eee;
     --main-body-color: black;
     --page-content-title-bkg-color: #CD214F;
+    --page-content-title-bkg-color-hover: #811633;
     --page-content-title-color: white;
     --content-title-bkg-color:#8E9CB2;
+    --content-title-bkg-color-hover:#646e7e;
     --content-title-color:white;
     --content-bkg-color: var(--main-body-bkg-color);
     --content-color: var(--main-body-color);

@@ -1,4 +1,5 @@
 <?php
+    echo "\t" . "\t" . "\t" . '<div class="lb_content_title center">' . gethostname() . ': ' . $_SERVER['SERVER_ADDR'] . '</div>' . PHP_EOL;
     echo '<div class="lb_content">' . PHP_EOL;
     echo '<table>' . PHP_EOL;
     echo '<tr>' . PHP_EOL;
