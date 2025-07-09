@@ -1,4 +1,5 @@
 <?php
+    echo "\t" . "\t" . "\t" . '<div class="lb_menu">' . PHP_EOL;
     $file_menu = file("SOURCES/CONTENT/MAIN/_menu.txt");
     $current = pathinfo($_SERVER['PHP_SELF'])['basename'];
     echo "\t" . "\t" . "\t" . "\t" . '<ul>' . PHP_EOL;
@@ -13,4 +14,5 @@
         }
     }
     echo "\t" . "\t" . "\t" . "\t" . '</ul>' . PHP_EOL;
+    echo "\t" . "\t" . "\t" . '</div>' . PHP_EOL;
 ?>
