@@ -71,3 +71,10 @@ td:has(.btn15)
     border: var(--border);
     text-shadow: var(--text-shadow);
 }
+
+@media (max-width: 768px) {
+    :root
+    {
+        --puzzle-size: 32px;
+    }
+}

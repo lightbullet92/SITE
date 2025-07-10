@@ -7,3 +7,10 @@
 {
     height: var(--mem-size);
 }
+
+@media (max-width: 768px) {
+    :root
+    {
+        --mem-size: 128px;
+    }
+}

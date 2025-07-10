@@ -6,9 +6,5 @@ news.php
 articles.php
 Minecraft
 minecraft.php
-SA:MP
-samp.php
-Смешные котята
-funnycats.php
 О нас
 about.php

@@ -10,3 +10,10 @@
     height: var(--logo-size);
     border: none;
 }
+
+@media (max-width: 768px) {
+    :root
+    {
+        --logo-size: 48px;
+    }
+}

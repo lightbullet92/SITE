@@ -22,14 +22,10 @@ respectively</li>
 
 <b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/apache2/lightbullet.ru.conf /etc/apache2/sites-enabled/lightbullet.ru.conf
 
-<b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/apache2/m.lightbullet.ru.conf /etc/apache2/sites-enabled/m.lightbullet.ru.conf
-
 <b>user@COMPXX:~$ </b>sudo systemctl restart apache2
 
 <h2>Nginx config</h2>
 
 <b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/lightbullet.ru.conf /etc/nginx/sites-enabled/lightbullet.ru.conf
-
-<b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/m.lightbullet.ru.conf /etc/nginx/sites-enabled/m.lightbullet.ru.conf
 
 <b>user@COMPXX:~$ </b>sudo systemctl restart nginx

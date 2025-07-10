@@ -5,3 +5,10 @@
     width: 75%;
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    .lb_copyright
+    {
+        width: 90%;
+    }
+}

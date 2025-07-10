@@ -16,3 +16,10 @@
     border: none;
     padding: 0 var(--padding);
 }
+
+@media (max-width: 768px) {
+    :root
+    {
+        --socials-icon-size: 24px;
+    }
+}

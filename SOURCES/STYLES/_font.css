@@ -11,3 +11,10 @@
     font-style: normal; 
     font-weight: normal;
 }
+
+@media (max-width: 768px) {
+    :root
+    {
+        --font-size: 8px;
+    }
+}

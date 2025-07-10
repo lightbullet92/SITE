@@ -1,8 +1,0 @@
-Главная
-index.php
-Новости
-news.php
-Статьи
-articles.php
-О нас
-about.php
