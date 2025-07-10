@@ -4,7 +4,6 @@
     $files_news = array_diff(scandir($news_dir, SCANDIR_SORT_DESCENDING), array('..', '.'),);
     $count = 3;
     foreach($files_news as $indexnews => $newsfilename)
-    {
         if($indexnews < $count)
         {
             $news = file($news_dir . trim($newsfilename));
@@ -20,5 +19,4 @@
             echo "\t" . "\t" . "\t" . '</div>' . PHP_EOL;
             echo '</details>' . PHP_EOL;
         }
-    }
 ?>

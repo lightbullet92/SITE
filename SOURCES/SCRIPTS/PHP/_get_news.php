@@ -1,7 +1,6 @@
 <?php
     $news_dir = "SOURCES/CONTENT/NEWS/";
     $files_news = array_diff(scandir($news_dir, SCANDIR_SORT_DESCENDING), array('..', '.'),);
-
     foreach($files_news as $indexnews => $newsfilename)
     {
         $news = file($news_dir . trim($newsfilename));

@@ -1,7 +1,6 @@
 <?php
     $articles_dir = "SOURCES/CONTENT/ARTICLES/";
     $files_articles = array_diff(scandir($articles_dir, SCANDIR_SORT_DESCENDING), array('..', '.'),);
-
     foreach($files_articles as $indexarticle => $articlefilename)
     {
         $article = file($articles_dir . trim($articlefilename));

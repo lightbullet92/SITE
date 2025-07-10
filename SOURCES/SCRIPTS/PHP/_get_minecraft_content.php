@@ -1,7 +1,6 @@
 <?php
     $mc_dir = "SOURCES/CONTENT/MINECRAFT/";
     $files_mc = array_diff(scandir($mc_dir), array('..', '.'),);
-
     foreach($files_mc as $indexmc => $mcfilename)
     {
         $mc = file($mc_dir . trim($mcfilename));

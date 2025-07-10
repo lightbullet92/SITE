@@ -1,7 +1,6 @@
 <?php
     $ggd_dir = "SOURCES/CONTENT/GGD/";
     $files_ggd = array_diff(scandir($ggd_dir), array('..', '.'),);
-
     foreach($files_ggd as $indexggd => $ggdfilename)
     {
         $ggd = file($ggd_dir . trim($ggdfilename));

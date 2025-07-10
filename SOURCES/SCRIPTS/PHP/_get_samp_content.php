@@ -1,7 +1,6 @@
 <?php
     $samp_dir = "SOURCES/CONTENT/SAMP/";
     $files_samp = array_diff(scandir($samp_dir), array('..', '.'),);
-
     foreach($files_samp as $indexsamp => $sampfilename)
     {
         $samp = file($samp_dir . trim($sampfilename));
