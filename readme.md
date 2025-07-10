@@ -28,4 +28,6 @@ respectively</li>
 
 <b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/lightbullet.ru.conf /etc/nginx/sites-enabled/lightbullet.ru.conf
 
+<b>user@COMPXX:~$ </b>sudo ln -s <b>'/path/to/site/dir'</b>/SOURCES/SETTINGS/nginx/lightbullet.ru.ssl.conf /etc/nginx/sites-enabled/lightbullet.ru.ssl.conf
+
 <b>user@COMPXX:~$ </b>sudo systemctl restart nginx
