@@ -7,11 +7,7 @@ summary::-webkit-details-marker {
 }
   
 details summary::before {
-    content: ' ';
     display: none;
-    height: 0;
-    width: 0;
-    background-size: 0 0;
 }
   
 details[open] summary::before {
