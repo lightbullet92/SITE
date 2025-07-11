@@ -54,7 +54,6 @@
             fastcgi_pass unix:/does/not/exist;
         }
 
-        #change url here
         location / {
             try_files $uri $uri/ /index.php?$query_string;
         }
