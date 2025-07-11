@@ -1,4 +1,4 @@
-Установка и настройка сетевых папок linux
+Создание и настройка сетевых папок linux
 Для настройки сетевых папок с общим доступом необходимо сначала установить samba:
 <div class="lb_content_quote">
     <b>user@COMPXX:~$ </b>sudo apt-get install samba
