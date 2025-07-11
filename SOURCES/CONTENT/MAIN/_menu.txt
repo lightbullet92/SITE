@@ -1,10 +1,7 @@
 Главная
 index.php
-Новости
-news.php
-Статьи
-articles.php
-Minecraft
-minecraft.php
+group00
+group01
+group02
 О нас
 about.php
