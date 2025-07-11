@@ -19,7 +19,7 @@
 </div>
 Теперь создадим тестовую страницу:
 <div class="lb_content_quote">
-    <b>user@COMPXX:~$ </b>sudo nano /SITE/index.php
+    <b>user@COMPXX:~$ </b>nano /SITE/index.php
 </div>
 <div class="lb_content_quote_code">
     &lt;?php
