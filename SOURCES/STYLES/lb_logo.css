@@ -1,0 +1,19 @@
+:root
+{
+    --logo-size: 64px;
+}
+
+.lb_logo
+{
+    padding: 0 var(--padding);
+    width: var(--logo-size);
+    height: var(--logo-size);
+    border: none;
+}
+
+@media (max-width: 768px) {
+    :root
+    {
+        --logo-size: 48px;
+    }
+}

@@ -1,0 +1,11 @@
+Проект Light Bullet
+Представляю вашему вниманию сервера Minecraft:
+<ul>
+<li>lightbullet.ru:3199 (<a target="_blank" href="http://lightbullet.ru:3399">dynmap</a>) 1.20.1</li>
+<li>lightbullet.ru:3101 (<a target="_blank" href="http://lightbullet.ru:3301">dynmap</a>) 1.20.1</li>
+<li>lightbullet.ru:3197 (Fabric) 1.20.1</li>
+<li>lightbullet.ru:3190 (Origins) 1.20.1</li>
+<li>lightbullet.ru:3102 (<a target="_blank" href="http://lightbullet.ru:3302">dynmap</a>) 1.21.5</li>
+<li>lightbullet.ru:3103 (Fabric) 1.21.5</li>
+</ul>
+Дополнительную информацию можно найти в <a target="_blank" href="https://t.me/lightbulletminecraft">тематической группе telegram</a>.

@@ -1,0 +1,97 @@
+Установка и настройка nginx с поддержкой php
+Для установки <b>nginx</b> с поддержкой <b>php</b>, необходимо для начала их установить:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo apt-get install nginx php php-fpm
+</div>
+Далее необходимо отключить nginx:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo systemctl stop nginx
+</div>
+Теперь мы отключим стандартные конфигурации:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo rm -rf /etc/nginx/sites-enabled/*
+</div>
+Следующее, что мы сделаем - создадим папку, где будут храниться страницы (для примера создадим папку <b>/SITE</b> в корне системы):
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo mkdir -p /SITE
+    <b>user@COMPXX:~$ </b>sudo chown -R www-data:www-data /SITE
+    <b>user@COMPXX:~$ </b>sudo chown -R 0775 /SITE
+</div>
+Теперь создадим тестовую страницу:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>nano /SITE/index.php
+</div>
+<div class="lb_content_quote_code">
+    &lt;?php
+        &emsp;phpinfo();
+    ?>
+</div>
+Перед запуском nginx необходимо создать файл настройки:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo nano /etc/nginx/sites-enabled/site.ru.conf
+</div>
+<div class="lb_content_quote_code">
+    server {
+        &emsp;listen 80;
+        &emsp;server_name     site.ru;
+
+        &emsp;root  /SITE;
+
+        &emsp;index index.php;
+
+        &emsp;location /full {
+            &emsp;&emsp;set $mobile_request 0;
+            &emsp;&emsp;rewrite ^/full(.*)$ $1 break;
+        &emsp;}
+
+        &emsp;location ~* \.(jpg|jpeg|gif|css|png|js|ico|html)$ {
+            &emsp;&emsp;access_log off;
+            &emsp;&emsp;expires max;
+            &emsp;&emsp;log_not_found off;
+        &emsp;}
+
+        &emsp;location /testing {
+            &emsp;&emsp;fastcgi_pass unix:/does/not/exist;
+        &emsp;}
+
+        &emsp;location / {
+            &emsp;&emsp;try_files $uri $uri/ /index.php?$query_string;
+        &emsp;}
+
+        &emsp;location ~* \.php$ {
+            &emsp;&emsp;try_files $uri = 404;
+            &emsp;&emsp;fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            &emsp;&emsp;fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+            &emsp;&emsp;fastcgi_index index.php;
+            &emsp;&emsp;fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            &emsp;&emsp;include fastcgi_params;
+        &emsp;}
+
+        &emsp;location ~ /\.ht {
+                &emsp;&emsp;deny all;
+        &emsp;}
+    }
+</div>
+Обратите внимание на следующие строчки:
+<div class="lb_content_quote_code">
+    &emsp;location ~* \.php$ {
+        &emsp;&emsp;try_files $uri = 404;
+        &emsp;&emsp;fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        &emsp;&emsp;fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        &emsp;&emsp;fastcgi_index index.php;
+        &emsp;&emsp;fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        &emsp;&emsp;include fastcgi_params;
+    &emsp;}
+</div>
+Версия php у каждого может отличаться, поэтому, для того, чтобы проверить версию php, необходимо выполнить следующую команду:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>php -v
+</div>
+На экране будет указана версия php (в моем случае - 8.2), собственно ее и указываем в файле конфигурации.
+После всех проделанных действий необходимо запустить <b>nginx</b>:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo systemctl start nginx
+</div>
+Если все сделано правильно, то введя в браузере IP компьютера, на котором запущен nginx, вы увидите страницу конфигурации php.
+Теперь вы можете создавать свой сайт внутри папки <b>/SITE</b>.
+На этом, собственно, все.

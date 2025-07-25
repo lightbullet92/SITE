@@ -1,0 +1,52 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+body
+{
+    background-color: var(--body-bkg-color);
+    color: var(--body-color);
+}
+
+h1
+{
+    font-size: 120%;
+}
+
+h2
+{
+    font-size: 110%;
+}
+
+h3
+{
+    font-size: 105%;
+}
+
+a
+{
+    color: dimgray;
+    font-weight: bolder;
+}
+
+ul
+{
+    list-style-position: inside;
+}
+
+table
+{
+    border: var(--border);
+    width: 75%;
+    margin: var(--padding) auto;
+}
+
+td
+{
+    padding: 0 var(--padding);
+    border: var(--border);
+}

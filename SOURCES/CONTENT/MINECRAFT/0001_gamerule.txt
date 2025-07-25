@@ -1,0 +1,46 @@
+Команды консоли /gamerule
+<h1>Правила использования</h1>
+Команда достаточно простая, для ее использования необходимо знать следующие правила:
+<div class="lb_content_quote">
+<b>/gamerule <Необходимый параметр> <Значение></b>
+</div>
+<h1>Параметры команды</h1>
+Используя таблицу, можно подобрать необходимые параметры и изменить их при необходимости.
+<table>
+<tr><td><center><b>Правило</b></center></td><td><center><b>Описание</b></center></td><td><center><b>Возможные значения</b></center></td><td><center><b>Значение по умолчанию</b></center></td></tr>
+<tr><td>announceAdvancements</td><td>Уведомлений в чате о полученных достижений.</td><td>true or false</td><td>true</td></tr>
+<tr><td>commandBlockOutput</td><td>Командные блоки уведомлять администраторов о выполнении команд.</td><td>true or false</td><td>true</td></tr>
+<tr><td>disableElytraMovementCheck</td><td>Мониторинг за скоростью движения крыльев элитр.</td><td>true or false</td><td>false</td></tr>
+<tr><td>disableRaids</td><td>Отключает Рейды.</td><td>true or false</td><td>false</td></tr>
+<tr><td>doDaylightCycle</td><td>Продвигается ли время в цикле день / ночь. Если установлено значение false, время остановится в текущий момент.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doEntityDrops</td><td>Должны ли существа, не являющиеся мобами дропать предметы.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doFireTick</td><td>Должен ли огонь естественным образом распространяться, а затем гаснуть.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doImmediateRespawn</td><td>Будет ли игрок немедленно возрождаться, не видя меню возрождения.</td><td>true or false</td><td>false</td></tr>
+<tr><td>doInsomnia</td><td>Будут ли фантомы появляться ночью, если игрок не спал.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doLimitedCrafting</td><td>Ограничьте создание рецептов, которые разблокированы.</td><td>true or false</td><td>false</td></tr>
+<tr><td>doMobLoot</td><td>Должны ли с мобов выпадение опыта.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doMobSpawning</td><td>Должны ли мобы появляться естественным образом.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doPatrolSpawning</td><td>Должны ли появляться патрули.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doTileDrops</td><td>Дроп предметов после разрушения блоков.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doTraderSpawning</td><td>Должны ли бродячие торговцы появляться.</td><td>true or false</td><td>true</td></tr>
+<tr><td>doWeatherCycle</td><td>Меняется ли погода. Если установлено значение false, погода остановится в текущем цикле.</td><td>true or false</td><td>true</td></tr>
+<tr><td>drowningDamage</td><td>Наносит ли утопление урон.</td><td>true or false</td><td>true</td></tr>
+<tr><td>fallDamage</td><td>Наносят ли падения урон.</td><td>true or false</td><td>true</td></tr>
+<tr><td>fireDamage</td><td>Наносит ли огонь урон.</td><td>true or false</td><td>true</td></tr>
+<tr><td>forgiveDeadPlayers</td><td>Перестанут ли злые нейтральные мобы злиться, когда целевой игрок умирает.</td><td>true or false</td><td>true</td></tr>
+<tr><td>freezeDamage</td><td>Наносит ли игрок, находящийся в снеге, урон.</td><td>true or false</td><td>true</td></tr>
+<tr><td>keepInventory</td><td>Сохранят ли игроки свой инвентарь после смерти.</td><td>true or false</td><td>false</td></tr>
+<tr><td>logAdminCommands</td><td>Добавляются ли команды администратора в журнал сервера.</td><td>true or false</td><td>true</td></tr>
+<tr><td>maxCommandChainLength</td><td>Максимальная длина команд.</td><td>&lt;number&gt;</td><td>65536</td></tr>
+<tr><td>maxEntityCramming</td><td>Максимальное количество объектов, которые могут быть заполнены.</td><td>&lt;number&gt;</td><td>24</td></tr>
+<tr><td>mobGriefing</td><td>Могут ли мобы подбирать предметы или менять блоки.</td><td>true or false</td><td>true</td></tr>
+<tr><td>naturalRegeneration</td><td>Могут ли игроки восстанавливать здоровье естественным путем через панель голода.</td><td>true or false</td><td>true</td></tr>
+<tr><td>playersSleepingPercentage</td><td>Процент игроков, которые должны спать, чтобы пропустить ночь.</td><td>&lt;number&gt;</td><td>100</td></tr>
+<tr><td>randomTickSpeed</td><td>Задает скорость, с которой вещи растут или распадаются (например, рост саженца в дерево). 0 отключает случайный тик. Чем выше значение, тем быстрее выполняется случайный тик.</td><td>&lt;number&gt;</td><td>3</td></tr>
+<tr><td>reducedDebugInfo</td><td>Скрывает ли экран отладки какую-либо информацию.</td><td>true or false</td><td>false</td></tr>
+<tr><td>sendCommandFeedback</td><td>Появляется ли обратная связь от команд игроков в чате.</td><td>true or false</td><td>true</td></tr>
+<tr><td>showDeathMessages</td><td>Появляется ли сообщение в чате, когда игрок умирает.</td><td>true or false</td><td>true</td></tr>
+<tr><td>spawnRadius</td><td>Определяет, как далеко от мировой точки возрождения вы можете появиться.</td><td>&lt;number&gt;</td><td>10</td></tr>
+<tr><td>spectatorsGenerateChunks</td><td>Могут ли зрители возрождаться в игре.</td><td>true or false</td><td>true</td></tr>
+<tr><td>universalAnger</td><td>Будут ли разгневанные нейтральные мобы атаковать любых ближайших игроков.</td><td>true or false</td><td>true</td></tr>
+</table>

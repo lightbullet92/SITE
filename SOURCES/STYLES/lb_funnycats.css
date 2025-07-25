@@ -1,0 +1,16 @@
+:root
+{
+    --fc-size: 196px;
+}
+
+.lb_funnycats img
+{
+    height: var(--fc-size);
+}
+
+@media (max-width: 768px) {
+    :root
+    {
+        --fc-size: 96px;
+    }
+}

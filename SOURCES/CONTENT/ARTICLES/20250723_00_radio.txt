@@ -1,0 +1,163 @@
+Сервер интернет-радио (icecast2 + ezstream)
+<h2>Начало</h2>
+Установим необходимые компоненты
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo apt-get install icecast2 ezstream
+</div>
+После установки сервисов необходимо их остановить, если они запущены
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo systemctl stop icecast2.service
+</div>
+<h2>Создание плейлистов</h2>
+Создаем папку для плейлистов
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo mkdir -p /etc/icecast2/playlists
+</div>
+Создаем сам плейлист
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo nano /etc/icecast2/playlists/public.m3u
+</div>
+<div class="lb_content_quote_code">
+    Пути к звуковым файлам.
+</div>
+<h2>Настройка icecast2</h2>
+Приводим файл настройки icecast2 к следующему виду:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo nano /etc/icecast2/icecast.xml
+</div>
+<div class="lb_content_quote_code">
+    &lt;icecast>
+        &emsp;&lt;location>Russia&lt;/location>
+        &emsp;&lt;admin>admin@localhost&lt;/admin>
+        &emsp;&lt;limits>
+            &emsp;&emsp;&lt;clients>250&lt;/clients>
+            &emsp;&emsp;&lt;sources>20&lt;/sources>
+            &emsp;&emsp;&lt;queue-size>524288&lt;/queue-size>
+            &emsp;&emsp;&lt;client-timeout>30&lt;/client-timeout>
+            &emsp;&emsp;&lt;header-timeout>15&lt;/header-timeout>
+            &emsp;&emsp;&lt;source-timeout>10&lt;/source-timeout>
+            &emsp;&emsp;&lt;burst-on-connect>1&lt;/burst-on-connect>
+            &emsp;&emsp;&lt;burst-size>65535&lt;/burst-size>
+        &emsp;&lt;/limits>
+        &emsp;&lt;authentication>
+            &emsp;&emsp;&lt;source-password><b>changeme</b>&lt;/source-password>
+            &emsp;&emsp;&lt;relay-password><b>changeme</b>&lt;/relay-password>
+            &emsp;&emsp;&lt;admin-user>admin&lt;/admin-user>
+            &emsp;&emsp;&lt;admin-password><b>changeme</b>&lt;/admin-password>
+        &emsp;&lt;/authentication>
+        &emsp;&lt;hostname><b>radio.site.ru</b>&lt;/hostname>
+        &emsp;&lt;listen-socket>
+            &emsp;&emsp;&lt;port><b>8080</b>&lt;/port>
+        &emsp;&lt;/listen-socket>
+        &emsp;&lt;http-headers>
+            &emsp;&emsp;&lt;header name="Access-Control-Allow-Origin" value="*" />
+        &emsp;&lt;/http-headers>
+        &emsp;&lt;fileserve>1&lt;/fileserve>
+        &emsp;&lt;paths>
+            &emsp;&emsp;&lt;basedir>/usr/share/icecast2&lt;/basedir>
+            &emsp;&emsp;&lt;logdir>/var/log/icecast2&lt;/logdir>
+            &emsp;&emsp;&lt;webroot>/usr/share/icecast2/web&lt;/webroot>
+            &emsp;&emsp;&lt;adminroot>/usr/share/icecast2/admin&lt;/adminroot>
+            &emsp;&emsp;&lt;alias source="/" destination="/status.xsl"/>
+        &emsp;&lt;/paths>
+        &emsp;&lt;logging>
+            &emsp;&emsp;&lt;accesslog>access.log&lt;/accesslog>
+            &emsp;&emsp;&lt;errorlog>error.log&lt;/errorlog>
+            &emsp;&emsp;&lt;loglevel>3&lt;/loglevel> &lt;!-- 4 Debug, 3 Info, 2 Warn, 1 Error -->
+            &emsp;&emsp;&lt;logsize>10000&lt;/logsize> &lt;!-- Max size of a logfile -->
+        &emsp;&lt;/logging>
+        &emsp;&lt;security>
+            &emsp;&emsp;&lt;chroot>1&lt;/chroot>
+            &emsp;&emsp;&lt;changeowner>
+                &emsp;&emsp;&emsp;&lt;user>icecast2&lt;/user>
+                &emsp;&emsp;&emsp;&lt;group>icecast&lt;/group>
+            &emsp;&emsp;&lt;/changeowner>
+        &emsp;&lt;/security>
+    &lt;/icecast>
+</div>
+Запускаем сервис
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo systemctl start icecast2.service
+</div>
+Теперь можно проверить работоспособность сервера, перейдя по ссылке <a target="_blank" href="http://radio.site.ru:8080">http://radio.site.ru:<b>8080</b></a>.
+Если все настроено верно, то вы увидите страницу icecast2. На данный момент на сервере нет источников вещания: не пугайтесь, так и должно быть. 
+<h2>Настройка источника вещания ezstream</h2>
+Создание директории конфигурации и логов для ezstream
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo mkdir -p /etc/ezstream
+</div>
+Создаем конфигурацию для ezstream:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo nano /etc/ezstream/public.xml
+</div>
+<div class="lb_content_quote_code">
+    &lt;?xml version="1.0" encoding="UTF-8"?>
+    &lt;ezstream>
+        &emsp;&lt;servers>
+            &emsp;&emsp;&lt;server>
+                &emsp;&emsp;&emsp;&lt;name>Site Radio&lt;/name>
+                &emsp;&emsp;&emsp;&lt;hostname>localhost&lt;/hostname>
+                &emsp;&emsp;&emsp;&lt;port><b>8080</b>&lt;/port>
+                &emsp;&emsp;&emsp;&lt;password><b>changeme</b>&lt;/password>
+            &emsp;&emsp;&lt;/server>
+        &emsp;&lt;/servers>
+        &emsp;&lt;streams>
+            &emsp;&emsp;&lt;stream>
+                &emsp;&emsp;&emsp;&lt;server>Site Radio&lt;/server>
+                &emsp;&emsp;&emsp;&lt;mountpoint>/public&lt;/mountpoint>
+                &emsp;&emsp;&emsp;&lt;format>MP3&lt;/format>
+                &emsp;&emsp;&emsp;&lt;shuffle>0&lt;/shuffle>
+                &emsp;&emsp;&emsp;&lt;playlist_program>0&lt;/playlist_program>
+                &emsp;&emsp;&emsp;&lt;intake>Site Public&lt;/intake>
+                &emsp;&emsp;&emsp;&lt;svrinfoname>Site Public&lt;/svrinfoname>
+                &emsp;&emsp;&emsp;&lt;svrinfogenre>Public Music&lt;/svrinfogenre>
+                &emsp;&emsp;&emsp;&lt;svrinfodescription>Public Music&lt;/svrinfodescription>
+                &emsp;&emsp;&emsp;&lt;svrinfobitrate>256&lt;/svrinfobitrate>
+                &emsp;&emsp;&emsp;&lt;svrinfochannels>2&lt;/svrinfochannels>
+                &emsp;&emsp;&emsp;&lt;svrinfosamplerate>44100&lt;/svrinfosamplerate>
+                &emsp;&emsp;&emsp;&lt;svrinfopublic>1&lt;/svrinfopublic>
+            &emsp;&emsp;&lt;/stream>
+        &emsp;&lt;/streams>
+        &emsp;&lt;intakes>
+            &emsp;&emsp;&lt;intake>
+            &emsp;&emsp;&lt;name>Site Public&lt;/name>
+            &emsp;&emsp;&lt;type>playlist&lt;/type>
+            &emsp;&emsp;&lt;filename>/etc/icecast2/playlists/public.m3u&lt;/filename>
+            &emsp;&emsp;&lt;/intake>
+        &emsp;&lt;/intakes>
+    &lt;/ezstream>
+</div>
+Сменим владельца файла настройки
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo chown -R icecast2:icecast /etc/ezstream/public.xml
+</div>
+Создадим точку запуска сервиса ezstream
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo nano /etc/systemd/system/ezstream_public.service
+</div>
+<div class="lb_content_quote_code">
+    [Unit]
+    &emsp;Description=ezstream_public
+    &emsp;After=network.target
+    &emsp;Requires=ezstream_public.service
+    [Service]
+    &emsp;User=icecast2
+    &emsp;Group=icecast
+    &emsp;Type=simple
+    &emsp;PIDFile=/etc/ezstream/ezstream.pid
+    &emsp;ExecStart=/usr/bin/ezstream -c /etc/ezstream/public.xml
+    &emsp;ExecReload=/bin/kill -HUP $MAINPID
+    &emsp;Restart=always
+    [Install]
+    &emsp;WantedBy=multi-user.target
+</div>
+Обновляем информацио о точках запуска сервисов
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo systemctl daemon-reload
+</div>
+Запускаем созданный сервис
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo systemctl start ezstream_public.service
+</div>
+Если все настроено верно, то перейдя по ссылке <a target="_blank" href="http://radio.site.ru:8080/public">http://radio.site.ru:<b>8080</b>/public</a> вы сможете прослушать музыку, которая указана в плейлисте.
+Для дополнительных источников вещания необходимо создать файлы настроек ezstream, плейлисты и точки запуска сервиса под каждый источник вещания отдельно.

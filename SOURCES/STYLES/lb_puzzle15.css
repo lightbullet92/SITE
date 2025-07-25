@@ -1,0 +1,80 @@
+:root
+{
+    --puzzle-size: 48px;
+}
+
+.ms-game-msgbox{
+    display: block;
+    margin: var(--padding) auto;
+}
+
+.ms-game-msgbox p{
+    line-height: 68px;
+    text-align:center;
+    color:#f00;
+    font-size:125%;
+    font-weight: bold;
+}
+
+.Puzzle15Solver
+{
+    border: var(--border);
+    width: calc((var(--puzzle-size) + var(--padding)) * 5);
+    background-color: var(--body-bkg-color);
+    border-radius: var(--padding);
+}
+
+.Puzzle15Solver td
+{
+    width: var(--puzzle-size);
+    height: var(--puzzle-size);
+    text-align: center;
+    border-radius: var(--padding);
+    border: none;
+}
+
+.Puzzle15Solver td a
+{
+    color: var(--content-title-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn
+{
+    font-weight: bold;
+    margin: var(--padding) auto;
+    padding: var(--padding);
+    width: calc((var(--puzzle-size) + var(--padding)) * 5);
+    display: block;
+    font-size:125%;
+    border-radius: var(--padding);
+    background-color: var(--page-content-title-bkg-color);
+    color: var(--page-content-title-color);
+    border: var(--border);
+    text-shadow: var(--text-shadow);
+}
+
+.btn:hover
+{
+    background-color: var(--page-content-title-bkg-color-hover);
+}
+
+td:has(.btn15):hover
+{
+    background-color: var(--content-title-bkg-color-hover);
+}
+
+td:has(.btn15)
+{
+    background-color: var(--content-title-bkg-color);
+    border: var(--border);
+    text-shadow: var(--text-shadow);
+}
+
+@media (max-width: 768px) {
+    :root
+    {
+        --puzzle-size: 32px;
+    }
+}

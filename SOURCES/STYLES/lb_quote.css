@@ -1,0 +1,35 @@
+.lb_content_quote, .lb_content_quote_code
+{
+    padding: var(--padding) var(--text-indent);
+    width: 75%;
+}
+
+.lb_content_quote
+{
+    background-color: var(--content-quote-bkg-color);
+}
+
+.lb_content_quote_code
+{
+    background-color: var(--content-quote-code-bkg-color);
+}
+
+.lb_content_quote
+{
+    border: var(--quote-border);
+    color: var(--content-quote-color);
+}
+
+.lb_content_quote_code
+{
+    border: var(--quote-code-border);
+    font-style: italic;
+    color: var(--content-quote-code-color);
+}
+
+@media (max-width: 768px) {
+    .lb_content_quote, .lb_content_quote_code
+    {
+        width: 90%;
+    }
+}

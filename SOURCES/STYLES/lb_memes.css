@@ -1,0 +1,16 @@
+:root
+{
+    --mem-size: 196px;
+}
+
+.lb_memes img
+{
+    height: var(--mem-size);
+}
+
+@media (max-width: 768px) {
+    :root
+    {
+        --mem-size: 96px;
+    }
+}

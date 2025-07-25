@@ -1,0 +1,19 @@
+summary {
+    list-style: none;
+}
+  
+summary::-webkit-details-marker {
+    display: none;
+}
+  
+details summary::before {
+    display: none;
+}
+  
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+details .lb_content_news_title:hover, details .lb_content_title:hover {
+    background-color: var(--content-title-bkg-color-hover);
+}

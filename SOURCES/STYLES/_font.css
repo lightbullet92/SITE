@@ -1,0 +1,20 @@
+:root
+{
+    --font-family: 'Coolveica';
+    --font-size: 16px;
+}
+
+@font-face
+{
+    font-family: var(--font-family);
+    src: url("SOURCES/FONTS/Coolvetica/coolvetica condensed rg.ttf") format("truetype");
+    font-style: normal; 
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    :root
+    {
+        --font-size: 8px;
+    }
+}

@@ -1,0 +1,186 @@
+FTP сервер c нуля
+Для правильного поднятия FTP сервера необходимо при установке дистрибутива разметить диски так, чтобы у диска, в котором будут храниться файлы, была отдельная точка монтирования, например <b>/ftpsd</b>
+Основная папка FTP хранилища: <b>/ftpsd/FTP</b>
+<h2>Установка необходимых компонентов</h2>
+Входим в режим суперпользователя
+<div class="lb_content_quote">
+<b>user@COMPXX:~$ </b>su -
+<b><i>#Ввод пароля</i></b>
+</div>
+Устанавливаем программы для реализации виртуальных пользователей
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>apt-get -y install vsftpd libpam-pwdfile apache2-utils
+</div>
+
+Останавливаем vsftpd
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl stop vsftpd
+</div>
+<h2>Управление пользователями</h2>
+Настраиваем правила аутентификации
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>nano /etc/pam.d/vsftpd
+</div>
+<div class=lb_content_quote_code>
+auth required pam_pwdfile.so pwdfile /etc/vsftpwd
+account required pam_permit.so
+</div>
+<h3>Создание пользователей</h3>
+Для создания первого виртуального пользователя вводим команду
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>htpasswd -c -d /etc/vsftpwd *имя пользователя*
+<b><i>#Ввод пароля</i></b>
+</div>
+
+Для создания последующих виртуальных пользователей вводим команды
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>htpasswd -d /etc/vsftpwd *имя пользователя*
+<b><i>#Ввод пароля</i></b>
+</div>
+
+Создаем файл /etc/vsftpd.userlist и пишем в нем логины, для которых разрешен вход
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>nano /etc/vsftpd.userlist
+</div>
+<div class=lb_content_quote_code>
+*имена пользователей*
+</div>
+<h3>Настройка доступов к директориям</h3>
+Запрещаем изменение папки /ftpsd/FTP
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>mkdir -p /ftpsd/FTP
+<b>root@COMPXX:~# </b>chmod a-w /ftpsd/FTP
+<b>root@COMPXX:~# </b>chown nobody:nogroup /ftpsd/FTP
+</div>
+
+Создаем папки для каждого из пользователей
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>mkdir -p /ftpsd/FTP/*имя пользователя*
+<b>root@COMPXX:~# </b>chown -R www-data:www-data /ftpsd/FTP/*
+<b>root@COMPXX:~# </b>chmod 755 /ftpsd/FTP/*
+</div>
+<h3>Удаление пользователей</h3>
+Для удаления виртуального пользователя (если есть необходимость в этом) вводим команду
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>htpasswd -D /etc/vsftpwd *имя пользователя*
+</div>
+
+Удаление папки пользователя
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>rm -rf /ftpsd/FTP/*имя пользователя*
+<b>root@COMPXX:~# </b>htpasswd -D /etc/vsftpwd *имя пользователя*
+</div>
+<h2>Конфигурация сервиса</h2>
+Редактируем файл /etc/vsftpd.conf
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>nano /etc/vsftpd.conf
+</div>
+<div class=lb_content_quote_code>
+#Включаем поддержку ipv4 и отключаем поддержку ipv6
+listen=YES
+listen_ipv6=NO
+
+#Скрываем ID пользователя, который зашел
+hide_ids=YES
+seccomp_sandbox=NO
+
+pam_service_name=vsftpd
+
+#Настраиваем так, чтобы пользователь входил в свою директорию
+user_sub_token=$USER
+local_root=/ftpsd/FTP/$USER
+secure_chroot_dir=/var/run/vsftpd/empty
+
+#Настраиваем таймауты
+idle_session_timeout=600
+data_connection_timeout=120
+
+#Активируем пассивный режим и назначаем порты
+pasv_enable=YES
+pasv_min_port=62000
+pasv_max_port=62999
+
+#Открываем 20 порт
+use_localtime=YES
+connect_from_port_20=YES
+
+local_umask=022
+
+#Делаем так, чтобы читались русские символы
+utf8_filesystem=YES
+ascii_upload_enable=YES
+ascii_download_enable=YES
+
+#Настраиваем режимы входа
+anonymous_enable=NO
+chroot_local_user=YES
+allow_writeable_chroot=YES
+virtual_use_local_privs=YES
+local_enable=YES
+write_enable=YES
+
+#Разрешаем заходить на FTP сервер виртуальным пользователям
+guest_enable=YES
+guest_username=www-data
+
+#Настраиваем списки пользователей, для которых вход разрешен
+userlist_enable=YES
+userlist_file=/etc/vsftpd.userlist
+userlist_deny=NO
+
+dirmessage_enable=YES
+
+#Логирование действий
+xferlog_enable=YES
+xferlog_file=/var/log/vsftpd.log
+xferlog_std_format=YES
+
+#Сертификаты
+rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+ssl_enable=NO
+</div>
+<h2>(Опционально) Установка  и настройка фаервола</h2>
+Установим фаервол, если он не установлен
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>apt-get install ufw
+</div>
+
+Выключаем фаервол, если он включен (sudo ufw status)
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl stop ufw
+</div>
+
+Теперь настроим порты для фаервола
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>ufw allow OpenSSH
+<b>root@COMPXX:~# </b>ufw allow 20/tcp
+<b>root@COMPXX:~# </b>ufw allow 21/tcp
+<b>root@COMPXX:~# </b>ufw allow 22/tcp
+<b>root@COMPXX:~# </b>ufw allow 62000:62999/tcp
+</div>
+
+Включаем фаервол
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl start ufw
+</div>
+
+Проверяем состояние фаервола
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>ufw status
+</div>
+<h2>Конец настройки и запуск сервиса</h2>
+Запускаем vsftpd
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl start vsftpd
+</div>
+
+Все, можно пользоваться.
+<h2>Дополнительно</h2>
+Для профилактики можно еще подчистить следы установки, обновить версии приложений и т.д.
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>apt-get update
+<b>root@COMPXX:~# </b>apt-get upgrade
+<b>root@COMPXX:~# </b>apt-get clean
+<b>root@COMPXX:~# </b>apt-get autoremove
+</div>

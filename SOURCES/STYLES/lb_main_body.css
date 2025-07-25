@@ -1,0 +1,29 @@
+.lb_main_body
+{
+    border: var(--main-body-border);
+    margin: var(--padding) auto;
+    padding: 0 var(--padding);
+    width: 75%;
+    background-color: var(--main-body-bkg-color);
+    color: var(--main-body-color);
+}
+
+.lb_main_body_header
+{
+    display: flex;
+    padding: var(--padding);
+}
+
+.lb_main_body_title
+{
+    line-height: var(--logo-size);
+    font-size: 150%;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .lb_main_body
+    {
+        width: 90%;
+    }
+}

@@ -1,0 +1,12 @@
+:root
+{
+    --sticky-border: 2px solid var(--page-content-title-bkg-color);
+}
+
+.lb_sticky
+{
+    position: sticky;
+    top: 0;
+    border-bottom: var(--sticky-border);
+    background-color: var(--main-body-bkg-color);
+}

@@ -1,0 +1,36 @@
+Создание и настройка сетевых папок linux
+Для настройки сетевых папок с общим доступом необходимо сначала установить samba:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo apt-get install samba
+</div>
+Следующее, что необходимо сделать - создать папку для общего доступа (для примера создадим папку <b>/SHARE</b> в корне системы):
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo mkdir -p /SHARE
+    <b>user@COMPXX:~$ </b>sudo chown -R www-data:www-data /SHARE
+    <b>user@COMPXX:~$ </b>sudo chmod -R 0775 /SHARE
+</div>
+После этого необходимо изменить настройки в <b>/etc/samba/smb.conf</b> следующим образом:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo nano /etc/samba/smb.conf
+</div>
+<div class="lb_content_quote_code">
+    [global]
+    &emsp;workgroup = WORKGROUP
+    &emsp;security = user
+    &emsp;map to guest = bad user
+    &emsp;wins support = no
+    &emsp;dns proxy = no
+    [SHARE]
+    &emsp;path = /SHARE
+    &emsp;guest ok = yes
+    &emsp;force user = www-data
+    &emsp;browsable = yes
+    &emsp;writable = yes
+</div>
+Для применения настроек на лету необходимо перезапустить службы <b>smbd</b> и <b>nmbd</b>:
+<div class="lb_content_quote">
+    <b>user@COMPXX:~$ </b>sudo systemctl restart smbd nmbd
+</div>
+После проделанных действий вы можете проверить доступность папки с другого ПК:
+Если, перейдя по IP компьютера, вы увидите сетевой ресурс <b>SHARE</b>, значит все сделано правильно.
+На этом, собственно, все.

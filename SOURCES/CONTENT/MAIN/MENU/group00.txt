@@ -1,0 +1,4 @@
+Новости
+news.php
+Статьи
+articles.php

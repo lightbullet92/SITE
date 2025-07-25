@@ -1,0 +1,79 @@
+.lb_comments
+{
+    padding: var(--padding);
+    text-indent: var(--text-indent);
+    text-align: justify;
+    font-size: 100%;
+    color: var(--content-color);
+    background-color: var(--content-bkg-color);
+}
+
+.lb_comments_title
+{
+    padding: var(--menu-padding);
+    font-size: 125%;
+    font-weight: bold;
+    text-shadow: var(--text-shadow);
+    color: var(--page-content-title-color);
+    background-color: var(--page-content-title-bkg-color-hover);
+    text-align: center;
+}
+
+.lb_content_comment_user
+{
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.lb_comments p
+{
+    margin-left: var(--text-indent);
+    background-color: var(--content-quote-bkg-color);
+    color: var(--content-quote-color);
+}
+
+[id*="FORM"]
+{
+    padding: 0;
+}
+
+[id*="FORM"] label, [id*="FORM"] input, [id*="FORM"] textarea
+{
+    display: block;
+    padding: var(--padding);
+}
+
+[id*="FORM"] label
+{
+    padding-bottom: 0;
+}
+
+[id*="FORM"] button
+{
+    font-weight: bold;
+    margin: var(--padding) auto;
+    padding: var(--padding);
+    width: calc((var(--puzzle-size) + var(--padding)) * 5);
+    display: block;
+    font-size:125%;
+    border-radius: var(--padding);
+    background-color: var(--page-content-title-bkg-color);
+    color: var(--page-content-title-color);
+    border: var(--border);
+    text-shadow: var(--text-shadow);
+}
+
+[id*="FORM"] button:hover
+{
+    background-color: var(--page-content-title-bkg-color-hover);
+}
+
+[id*="FORM"] [id*="name"]
+{
+    width: 50%;
+}
+
+[id*="FORM"] [id*="comment"]
+{
+    width: 95%;
+}

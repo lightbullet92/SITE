@@ -1,0 +1,10 @@
+:root
+{
+    --padding: 5px;
+    --text-indent: 1.5em;
+    --text-shadow: 1px 1px 2px black;
+    --main-body-border: 2px solid black;
+    --border: 1px solid black;
+    --quote-border: 1px solid black;
+    --quote-code-border: 1px dotted black;
+}
