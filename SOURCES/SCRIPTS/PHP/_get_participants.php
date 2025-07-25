@@ -1,7 +1,7 @@
 <?php
     $part_dir = "SOURCES/CONTENT/LINKS/PARTICIPANTS/";
-    $part_user_files = array_diff(scandir($part_dir), array('..', '.', 'description.txt'));
-    $part_description_filename = $part_dir . 'description.txt';
+    $part_user_files = array_diff(scandir($part_dir), array('..', '.', '_description.txt'));
+    $part_description_filename = $part_dir . '_description.txt';
     echo "\t" . "\t" . "\t" . '<div class="lb_page_content_title center">Участники группы</div>' . PHP_EOL;
     if(file_exists($part_description_filename))
     {
