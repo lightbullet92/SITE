@@ -15,7 +15,10 @@
                 $ul_categories_file = file($ul_categories_filename);
                 foreach($ul_categories_file as $ul_file_index => $ul_file_item)
                     if($ul_file_index == 0)
-                        echo "\t" . "\t" . "\t" . "\t" . '<div class="lb_content_title">' . trim($ul_file_item) . '</div>' . PHP_EOL . "\t" . "\t" . "\t" . "\t" . '<div class="lb_content">' . PHP_EOL;
+                    {
+                        echo "\t" . "\t" . "\t" . "\t" . '<div class="lb_content_title">' . trim($ul_file_item) . '</div>' . PHP_EOL;
+                        echo "\t" . "\t" . "\t" . "\t" . '<div class="lb_content">' . PHP_EOL;
+                    }
                     else
                         if(trim($ul_file_item)[0] != ">")
                             echo "\t" . "\t" . "\t" . "\t" . "\t" . '<p><a target="_blank" href="' . trim($ul_file_item) . '">' . str_replace(">", "", trim($ul_categories_file[$ul_file_index - 1])) . '</a></p>' . PHP_EOL;

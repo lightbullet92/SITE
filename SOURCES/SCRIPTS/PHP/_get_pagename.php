@@ -16,8 +16,8 @@
                 }
         }
         if(!$exists)
-            echo file_get_contents("SOURCES/CONTENT/MAIN/_company.txt") . ': Not in menu!' . PHP_EOL;
+            echo file_get_contents("SOURCES/CONTENT/MAIN/_company.txt") . ': Нет в меню!' . PHP_EOL;
     }
     else
-        echo file_get_contents("SOURCES/CONTENT/MAIN/_company.txt") . ': Menu file is not found!' . PHP_EOL;
+        echo file_get_contents("SOURCES/CONTENT/MAIN/_company.txt") . ': Файл списка меню не найден!' . PHP_EOL;
 ?>
