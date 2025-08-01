@@ -1,7 +1,7 @@
 Проект Light Bullet SAMP Server
 Представляю вашему вниманию сервер Light Bullet:
 <ul>
-<li>lightbullet.ru:7777 (0.3.7 R2)</li>
+<li><button id="LBSAMP">lightbullet.ru:7777</button> (0.3.7 R2)</li>
 </ul>
 Торрент для скачивания GTA SA + SA:MP: <a href="SOURCES/FILES/SAMP/gta_for_samp.torrent">ссылка</a>.
 Дополнительную информацию можно найти в <a target="_blank" href="https://t.me/+ypcbWSN4TZEzNmRi">группе telegram</a>.

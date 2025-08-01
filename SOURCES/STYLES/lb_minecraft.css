@@ -1,0 +1,11 @@
+[id*="LB"]
+{
+    padding: 0 var(--padding);
+    border: none;
+}
+
+[id*="LB"]:hover
+{
+    background-color: var(--content-title-bkg-color);
+    color: var(--content-title-color);
+}
