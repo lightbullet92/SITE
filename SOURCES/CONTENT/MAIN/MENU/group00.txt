@@ -2,3 +2,5 @@
 news.php
 Статьи
 articles.php
+Полезные ссылки
+useful_links.php
