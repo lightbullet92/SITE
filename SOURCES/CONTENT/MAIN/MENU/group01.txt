@@ -2,5 +2,3 @@ Minecraft
 minecraft.php
 SA:MP
 samp.php
-Игры
-games.php
