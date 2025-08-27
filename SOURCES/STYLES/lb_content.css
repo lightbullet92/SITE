@@ -29,6 +29,16 @@
     text-align: center;
 }
 
+.right
+{
+    text-align: right;
+}
+
+.left
+{
+    text-align: left;
+}
+
 .lb_content
 {
     padding: var(--menu-padding);
@@ -42,4 +52,9 @@
 .lb_content ul
 {
     margin: var(--padding);
+}
+
+.bold
+{
+    font-weight: bold;
 }
