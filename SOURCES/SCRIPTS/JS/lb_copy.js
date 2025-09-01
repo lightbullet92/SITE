@@ -8,7 +8,7 @@ $(function()
     $temp.remove();
   }
 
-  var array=["#LBPaper", "#LBPaperTest", "#LBFabric", "#LBOrigins", "#LBReclaim", "#LBNewPaper", "#LBNewFabric", "#LBSAMP"];
+  var array=["#LBPaper", "#LBPaperTest", "#LBFabric", "#LBOrigins", "#LBVoid", "#LBReclaim", "#LBNewPaper", "#LBNewFabric", "#LBSAMP"];
   array.forEach(function(elem) {
     $(elem).on("click", function() {
       copyToClipboard(elem);

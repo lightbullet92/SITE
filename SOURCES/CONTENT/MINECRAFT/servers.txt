@@ -18,6 +18,11 @@ lightbullet.ru
 3196
 Xaero
 1.20.1
+#LBVoid
+lightbullet.ru
+3191
+3391
+1.20.1
 #LBOrigins
 lightbullet.ru
 3190
