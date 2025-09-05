@@ -6,6 +6,7 @@
     echo "\t" . "\t" . "\t" . '<summary><div class="lb_content_news_title">' . 'Проект Light Bullet' . '</div></summary>' . PHP_EOL;
     echo "\t" . "\t" . "\t" . '<div class="lb_content">' . PHP_EOL;
     echo "\t" . "\t" . "\t" . "\t" . '<p><span class="red"><b>Внимание:</b></span> Для того, чтобы скопировать IP сервера, достаточно просто на него нажать.</p>' . PHP_EOL;
+    echo "\t" . "\t" . "\t" . "\t" . '<p>Большинство серверов доступны через <button id="LBVelocity">lightbullet.ru:25565</button>. Поддерживаются релизные версии клиентов, вплоть до версии 1.21.8.</p>' . PHP_EOL;
     echo "\t" . "\t" . "\t" . "\t" . '<p>Представляю вашему вниманию сервера Minecraft:</p>' . PHP_EOL;
     echo "\t" . "\t" . "\t" . "\t" . '<p><table></p>' . PHP_EOL;
     echo "\t" . "\t" . "\t" . "\t" . '<p><tr class="center bold"><td>Сервер</td><td>IP адрес</td><td>Карта</td><td>Версия</td><td>Доступность</td></tr></p>' . PHP_EOL;
@@ -48,7 +49,7 @@
             case 4:
                 echo $mc_ip . ':' . $mc_port . '</button></td><td>';
                 if($mc_exists_dynmap)
-                    echo '(<a target="_blank" href="http://' . $mc_ip . ':' . $mc_dynmap_port . '">dynmap</a>)';
+                    echo '(<a target="_blank" href="http://' . $mc_ip . ':' . $mc_dynmap_port . '">map</a>)';
                 else
                     if($mc_exists_map)
                         echo $mc_dynmap_port;

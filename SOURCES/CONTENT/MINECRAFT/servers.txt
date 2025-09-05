@@ -43,3 +43,8 @@ lightbullet.ru
 3104
 none
 25w31a
+#LBNewPaper
+lightbullet.ru
+3105
+3305
+1.21.8
