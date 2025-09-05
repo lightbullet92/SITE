@@ -2,12 +2,12 @@
 lightbullet.ru
 3199
 3399
-1.20.1
+1.20 - 1.21.8
 #LBPaperTest
 lightbullet.ru
 3198
 3398
-1.20.1
+1.20 - 1.21.8
 #LBFabric
 lightbullet.ru
 3197
@@ -22,7 +22,7 @@ Xaero
 lightbullet.ru
 3191
 3391
-1.20.1
+1.20 - 1.21.8
 #LBOrigins
 lightbullet.ru
 3190
@@ -32,7 +32,7 @@ lightbullet.ru
 lightbullet.ru
 3102
 3302
-1.21.8
+1.20 - 1.21.8
 #LBNewFabric
 lightbullet.ru
 3103
