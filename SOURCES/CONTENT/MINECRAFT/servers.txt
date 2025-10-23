@@ -53,3 +53,8 @@ lightbullet.ru
 3105
 3305
 1.21.8
+#LBTest
+lightbullet.ru
+3106
+3306
+1.16.5
