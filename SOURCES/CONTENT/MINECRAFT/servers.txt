@@ -1,64 +1,77 @@
 #LBPaper
+Velocity (25565)
 lightbullet.ru
 3199
 3399
 1.20 - 1.21.8
 #LBPaperTest
+Velocity (25565)
 lightbullet.ru
 3198
 3398
 1.20 - 1.21.8
 #LBFabric
+Velocity (25565)
 lightbullet.ru
 3197
 3397
 1.20.1
 #LBReclaim
+IP адрес
 lightbullet.ru
 3196
 Xaero
 1.20.1
 #LBVoid
+Velocity (25565)
 lightbullet.ru
 3191
 3391
 1.20 - 1.21.8
 #LBOrigins
+IP адрес
 lightbullet.ru
 3190
 3390
 1.20.1
 #LBHUB
+Velocity (25565)
 lightbullet.ru
 3101
 3301
 1.20 - 1.21.8
 #LBVanilla
+Velocity (25565)
 lightbullet.ru
 3102
 3302
 1.20 - 1.21.8
 #LBNewFabric
+Velocity (25565)
 lightbullet.ru
 3103
 3303
 1.21.8
 #LB404
+Velocity (25565)
 lightbullet.ru
 3104
 3304
 1.20 - 1.21.8
 #LBNewPaper
+Velocity (25565)
 lightbullet.ru
 3105
 3305
 1.21.8
 #LBTest
+IP адрес
 lightbullet.ru
 3106
 3306
 1.16.5
 #LBIbra
+IP адрес
 lightbullet.ru
 3107
 Xaero
