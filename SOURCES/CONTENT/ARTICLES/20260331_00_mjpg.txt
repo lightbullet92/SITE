@@ -1,0 +1,100 @@
+Трансляция веб-камеры с помощью MJPEG-сервера
+Иногда возникает потребность трансляции обычной веб-камеры, например, для того, чтобы удаленно показывать, что происходит в соседней комнате (Вставка изображения в OBS во время трансляции). Для реализации трансляции веб-камеры мы воспользуемся популярным инструментом mjpg-streamer.
+<h2>Установка необходимых компонентов</h2>
+Входим в режим суперпользователя
+<div class="lb_content_quote">
+<b>user@COMPXX:~$ </b>su -
+<b><i>#Ввод пароля</i></b>
+</div>
+Устанавливаем необходимые зависимости
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>apt-get -y install libjpeg-dev libv4l-dev cmake subversion
+</div>
+Далее создаем папку, где будет лежать программа (В моем случае это <b>/ftpsd/REMOTEWEBCAM/</b>)
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>mkdir -p /ftpsd/REMOTEWEBCAM/
+</div>
+Для дальнейшего использования, необходимо создать пользователя с правами root
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>adduser rwc
+<b><i>#Ввод данных по подсказкам</i></b>
+<b>root@COMPXX:~# </b>usermod -aG sudo rwc
+</div>
+Также нужно добавить пользователя в группу <b>video</b>, чтобы можно было запустить <b>mjpg-streamer</b> от имени данного пользователя
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>usermod -aG video rwc
+</div>
+Далее переходим в созданную папку, скачиваем <b>mjpg-streamer</b>, распаковываем архив
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>cd /ftpsd/REMOTEWEBCAM/
+<b>root@COMPXX:~# </b>wget https://github.com/jacksonliam/mjpg-streamer/archive/master.zip
+<b>root@COMPXX:~# </b>unzip master.zip
+</div>
+Переходим в папку <b>mjpg-streamer-master/mjpg-streamer-experimental/</b>
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>cd mjpg-streamer-master/mjpg-streamer-experimental/
+</div>
+В данной директории выполните следующую команду
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>make USE_LIBV4L2=true clean all
+</div>
+Скопируйте все файлы с расширением <b>.so</b> в папку <b>/usr/lib/</b>
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>cp -r *.so /usr/lib/
+</div>
+Также нужно установить владельца созданной ранее директории
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>chown -R rwc: /ftpsd/REMOTEWEBCAM
+</div>
+<h2>Проверка работоспособности mjpg-streamer</h2>
+В этой же директории введите следующую команду
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>./mjpg_streamer -i "input_uvc.so -d /dev/video0 -r 640x480 -f 30" -o "output_http.so -p 8080"
+</div>
+Если все сделано верно, то после выполнения данной команды изображение с веб камеры доступно по следующему адресу: <b>http://*IP_адрес*:8080/?action=stream</b> (Вместо *IP_адрес* вводите IP адрес системы, где запущен mjpg-streamer).
+Прервать выполнение команды можно с помощью комбинации клавиш <b>Ctrl + C</b>
+<h2>Установка mjpg-streamer в качестве службы</h2>
+Для того, чтобы не запускать программу длинной командой, нам нужно создать службу, которая будет ее запускать.
+Для этого нам нужно создать файл службы
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>nano /etc/systemd/system/mjpg-streamer.service
+</div>
+<div class="lb_content_quote_code">
+[Unit]
+&emsp;Description=MJPG Streamer
+&emsp;After=network-online.target
+&emsp;Wants=network-online.target
+[Service]
+&emsp;Type=simple
+&emsp;User=rwc
+&emsp;WorkingDirectory=/ftpsd/REMOTEWEBCAM/mjpg-streamer-master/mjpg-streamer-experimental
+&emsp;Environment=LD_LIBRARY_PATH=/ftpsd/REMOTEWEBCAM/mjpg-streamer-master/mjpg-streamer-experimental
+&emsp;ExecStart=/ftpsd/REMOTEWEBCAM/mjpg-streamer-master/mjpg-streamer-experimental/mjpg_streamer -i "input_uvc.so -d /dev/video0 -r 640x480 -f 30" -o "output_http.so -p 8080"
+&emsp;Restart=always
+&emsp;RestartSec=5
+[Install]
+&emsp;WantedBy=multi-user.target
+</div>
+Примечание: Параметры разрешения (параметр -r), частоты кадра (параметр -f) и порт для веб доступа к камере (параметр -p) можно менять по потребности и техническим характеристикам веб-камеры.
+Для того, чтобы служба смогла запуститься, необходимо обновить список служб
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl daemon-reload
+</div>
+Теперь мы сможем проверить работу <b>mjpg-streamer</b>, запустив службу
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl start mjpg-streamer
+</div>
+Можно еще проверить, запущена ли служба корректно
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl status mjpg-streamer
+</div>
+Для того, чтобы добавить службу в автозагрузку, необходимо ввести следующую команду
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl enable mjpg-streamer
+</div>
+Остановка службы производится следующей командой
+<div class="lb_content_quote">
+<b>root@COMPXX:~# </b>systemctl stop mjpg-streamer
+</div>
+Если все сделано верно, то после выполнения данной команды изображение с веб камеры доступно по следующему адресу: <b>http://*IP_адрес*:8080/?action=stream</b> (Вместо *IP_адрес* вводите IP адрес системы, где запущен mjpg-streamer).
+Примечание: Перед запуском нужно предварительно подключить веб-камеру к серверу, где установлен mjpg-streamer. В системе веб-камера в большинстве случаев определяется, как <b>/dev/video0</b>. Если на сервере установлено несколько веб-камер, то нужно искать ее индекс отдельно. Если веб-камера не определилась или определилась некорректно, нужно установить на сервер драйвера от этой веб-камеры.
