@@ -41,7 +41,7 @@ ul
 table
 {
     border: var(--border);
-    width: 75%;
+    width: 90%;
     margin: var(--padding) auto;
 }
 
@@ -49,4 +49,11 @@ td
 {
     padding: 0 var(--padding);
     border: var(--border);
+}
+
+th
+{
+    padding: 0 var(--padding);
+    border: var(--border);
+    text-align: center;
 }

@@ -1,0 +1,7 @@
+.lb_stream
+{
+    margin: var(--padding) auto;
+    padding: 0 var(--padding);
+    width: 75%;
+    text-align: center;
+}
