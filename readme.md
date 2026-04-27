@@ -8,7 +8,7 @@ respectively</li>
 
 <h2>Nginx installation</h2>
 
-<b>user@COMPXX:~$ </b>sudo apt-get -y install nginx php
+<b>user@COMPXX:~$ </b>sudo apt-get -y install nginx php php-fpm
 
 <h2>Apache2 installation</h2>
 
