@@ -15,7 +15,7 @@
 <div class="lb_content_quote">
     <b>user@COMPXX:~$ </b>sudo mkdir -p /SITE
     <b>user@COMPXX:~$ </b>sudo chown -R www-data:www-data /SITE
-    <b>user@COMPXX:~$ </b>sudo chown -R 0775 /SITE
+    <b>user@COMPXX:~$ </b>sudo chmod -R 0775 /SITE
 </div>
 Теперь создадим тестовую страницу:
 <div class="lb_content_quote">
